@@ -9,6 +9,6 @@
         public string EMail { get; set; }
         public DateOnly DateOfBirth { get; set; }
 
-        public ICollection<Guid>? OrdersId { get; set; } = null;
+        public IList<Guid>? OrderIDs { get; set; } = new List<Guid>();
     }
 }

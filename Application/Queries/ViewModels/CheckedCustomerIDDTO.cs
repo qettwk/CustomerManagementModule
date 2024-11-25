@@ -9,6 +9,6 @@ namespace Application.Queries.ViewModels
     public class CheckedCustomerIDDTO
     {
         public bool Excepted { get; set; }
-        public Guid ID { get; set; }
+        public DateOnly dateOfBirth { get; set; }
     }
 }

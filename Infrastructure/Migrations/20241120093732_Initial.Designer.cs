@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20241018103907_Initial")]
+    [Migration("20241120093732_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -46,8 +46,7 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid[]>("OrdersId")
-                        .IsRequired()
+                    b.Property<Guid[]>("OrderIDs")
                         .HasColumnType("uuid[]");
 
                     b.Property<string>("PhoneNumber")

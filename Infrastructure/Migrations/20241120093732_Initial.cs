@@ -25,7 +25,7 @@ namespace Infrastructure.Migrations
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
                     EMail = table.Column<string>(type: "text", nullable: false),
                     DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
-                    OrdersId = table.Column<Guid[]>(type: "uuid[]", nullable: false)
+                    OrderIDs = table.Column<Guid[]>(type: "uuid[]", nullable: true)
                 },
                 constraints: table =>
                 {

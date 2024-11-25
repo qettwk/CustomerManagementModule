@@ -43,8 +43,7 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid[]>("OrdersId")
-                        .IsRequired()
+                    b.Property<Guid[]>("OrderIDs")
                         .HasColumnType("uuid[]");
 
                     b.Property<string>("PhoneNumber")

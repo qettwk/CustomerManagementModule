@@ -1,5 +1,7 @@
 using Application.Commands;
+using Application.Commands.ViewModels;
 using Application.Queries;
+using Application.Queries.ViewModels;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -49,14 +51,25 @@ namespace API.Controllers
 
 
 
+        // если надо передать так же и OrderId, то как всё надо поменять?
+        // надо ли создавать отдельно DTO под 2 Guid?
+        // если передавать в одном DTO для автомобилей и клиентов, то клиентам
+        // просто так будут присылаться ID автомобилей,
+        // а автомобилям - ID клиентов
 
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<Guid>> SendCustomerIDToOrder(Guid Id)
+        // если надо будет создавать отдельно DTO под 2 Guid, то можно ли
+        // как-то распределить DTO по папкам более удобно?
+
+        // или через анонимный тип?
+        // или к каждой команде, запросу ниже писать DTO?
+        [HttpPost]
+        public async Task<IActionResult> SendCustomerIDToOrder([FromBody] OrderAndCustomerIDsDTO orderAndCustomerIDsDTO)
         {
             GetCustomerIDQuery query = new GetCustomerIDQuery
             {
-                ID = Id
+                orderAndCustomerIDsDTO = orderAndCustomerIDsDTO
             };
+
             var result = await _mediator.Send(query);
             return Ok(result);
         }
